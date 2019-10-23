@@ -18,4 +18,9 @@ jobs:
         java-version: 13.0.1
     - uses: actions/checkout@v1
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -Pproduction
+      run: mvn clean -B package --file pom.xml -Pproduction
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: my-starter-project-2.0-SNAPSHOT.jar
+        path: target/my-starter-project-2.0-SNAPSHOT.jar
